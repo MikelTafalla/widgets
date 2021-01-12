@@ -27,7 +27,11 @@ const Search = () => {
                 searchWiki();
             }
 
-        }, 500);
+        }, 1000);
+
+        return () => {
+            clearTimeout(timeOut)
+        }
     }, [term])
     
     const renderedResults = results.map((result) => {

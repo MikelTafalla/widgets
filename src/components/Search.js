@@ -20,16 +20,21 @@ const Search = () => {
             setResults(data.query.search)
 
         };
-        if (term) {
-            searchWiki();
-        }
+
+        const timeOut = setTimeout(() => {
+            
+            if (term) {
+                searchWiki();
+            }
+
+        }, 500);
     }, [term])
     
     const renderedResults = results.map((result) => {
         return (
             <div className="item" key={result.pageid}>
                 <div className="right floated content">
-                    <a className="ui button" href={`https://en.wikipedia.org?curid=${result.pageid}`} target="_blank">Go</a>
+                    <a className="ui button" href={`https://en.wikipedia.org?curid=${result.pageid}`} rel="noreferrer" target="_blank">Go</a>
                 </div>
                 <div className="content">
                     <div className="header">
